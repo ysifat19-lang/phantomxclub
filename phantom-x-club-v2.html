@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PHANTOM X CLUB — Esports</title>
+<style>
+:root{--bg:#050507;--card:#0e0b14;--card2:#151020;--p:#9b5cff;--p2:#6d28d9;--text:#f7f4ff;--muted:#a49bb5;--line:#2b1d3d;--ok:#65e6a0;--danger:#ff6f91}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 85% 0,#251044 0,transparent 28%),radial-gradient(circle at 5% 30%,#160d25 0,transparent 25%),var(--bg);color:var(--text);font-family:Inter,system-ui,Arial,sans-serif}a{text-decoration:none;color:inherit}button,input,select,textarea{font:inherit}button{cursor:pointer}
+.wrap{width:min(1180px,92%);margin:auto}.nav{position:fixed;top:0;left:0;right:0;z-index:20;height:70px;background:#050507d9;backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.navin{height:100%;display:flex;align-items:center;justify-content:space-between}.logo{font-weight:900;letter-spacing:1.5px}.logo b{color:var(--p)}nav{display:flex;gap:18px;font-size:12px;color:#c8bfd5}nav a:hover{color:#fff}.menu{display:none;background:transparent;color:#fff;border:1px solid var(--line);padding:8px 10px;border-radius:9px}
+.hero{min-height:720px;padding-top:120px;display:grid;align-items:center}.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:55px;align-items:center}.tag{display:inline-block;padding:7px 11px;border:1px solid var(--line);background:#9b5cff12;border-radius:99px;color:#cdaaff;font-size:10px;font-weight:900;letter-spacing:1.5px}h1{font-size:clamp(48px,7vw,88px);line-height:.94;letter-spacing:-4px;margin:20px 0;background:linear-gradient(110deg,#fff,#d1aaff,#8e43ff);color:transparent;background-clip:text}h2{font-size:clamp(30px,4vw,48px);line-height:1.05;margin:5px 0 14px}.hero p,.muted{color:var(--muted)}.buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.btn{border:1px solid var(--line);border-radius:11px;padding:12px 17px;font-weight:800;font-size:12px}.primary{background:linear-gradient(135deg,var(--p),var(--p2));box-shadow:0 10px 35px #6d28d933}.glass{background:linear-gradient(145deg,#181125d9,#09080cdd);border:1px solid var(--line);border-radius:25px;box-shadow:0 25px 80px #0008}.hero-art{height:390px;display:grid;place-items:center;position:relative;overflow:hidden}.orb{width:190px;height:190px;border:1px solid #bd8aff99;border-radius:50%;display:grid;place-items:center;box-shadow:0 0 90px #762dff55,inset 0 0 55px #762dff22}.orb:before{content:"";position:absolute;width:145px;height:145px;border:1px solid #bd8aff55;border-radius:50%}.orb strong{font-size:40px;letter-spacing:5px}
+section{padding:85px 0;scroll-margin-top:70px}.head{display:flex;justify-content:space-between;align-items:end;gap:25px;margin-bottom:27px}.head p{max-width:520px}.ey{font-size:10px;color:#ba91ff;font-weight:900;letter-spacing:2px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{padding:21px;background:#0e0b14cc;border:1px solid var(--line);border-radius:18px}.card h3{margin:11px 0 4px}.badge{display:inline-block;font-size:9px;padding:5px 8px;border-radius:99px;background:#65e6a014;color:var(--ok);border:1px solid #65e6a033;font-weight:900}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}.stat{padding:10px;border-radius:10px;background:#ffffff05;border:1px solid #ffffff0a}.stat b{display:block}.stat small{color:var(--muted);font-size:9px}.table{overflow:auto;border:1px solid var(--line);border-radius:15px}.table table{border-collapse:collapse;width:100%;min-width:680px}.table th,.table td{padding:13px 15px;text-align:left;border-bottom:1px solid #ffffff0a;font-size:12px}.table th{color:#bfaed4;font-size:9px;letter-spacing:1px}.table tr:last-child td{border:0}.contact{display:grid;grid-template-columns:1fr 1fr;gap:16px}.contact a{display:block;padding:15px;border:1px solid var(--line);border-radius:12px;margin-top:9px;color:#d9d0e5}
+#panel{display:none}.panelbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px}.tabs{display:flex;gap:7px;flex-wrap:wrap}.tab{background:#ffffff06;border:1px solid var(--line);color:#d9d0e5;padding:9px 11px;border-radius:9px;font-size:10px}.tab.active{background:#9b5cff18;color:#cdaaff}.admin-grid{display:grid;grid-template-columns:240px 1fr;gap:16px}.side{padding:15px}.side button{display:block;width:100%;text-align:left;background:transparent;color:#bfb6cb;border:0;padding:11px;border-radius:8px}.side button.active,.side button:hover{background:#9b5cff14;color:#fff}.dash{padding:20px}.form{display:grid;gap:10px}.form input,.form select,.form textarea{width:100%;background:#08070b;color:#fff;border:1px solid var(--line);border-radius:9px;padding:11px}.form textarea{min-height:90px}.login{max-width:450px;margin:auto;padding:25px}.hidden{display:none!important}footer{padding:35px 0;border-top:1px solid var(--line);color:#7f768c;font-size:11px}
+@media(max-width:850px){nav{display:none;position:absolute;top:70px;left:0;right:0;background:#050507f7;padding:15px;flex-direction:column}.menu{display:block}.hero-grid{grid-template-columns:1fr}.hero-art{height:280px}.grid{grid-template-columns:1fr 1fr}.admin-grid{grid-template-columns:1fr}}
+@media(max-width:560px){h1{letter-spacing:-2px}.grid,.contact{grid-template-columns:1fr}.head{display:block}.hero{min-height:auto;padding-bottom:60px}.hero-art{height:250px}section{padding:65px 0}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap navin"><a class="logo" href="#home">PHANTOM <b>X</b> CLUB</a><button class="menu" id="menu">MENU</button><nav id="nav"><a href="#home">Home</a><a href="#about">About</a><a href="#teams">Teams</a><a href="#players">Players</a><a href="#tournaments">Tournaments</a><a href="#schedule">Schedule</a><a href="#standings">Standings</a><a href="#results">Results</a><a href="#news">News</a><a href="#contact">Contact</a></nav></div></header>
+
+<main id="public">
+<section id="home" class="hero"><div class="wrap hero-grid"><div><span class="tag">FREE FIRE ESPORTS ORGANIZATION</span><h1>COMPETE.<br>DOMINATE.<br>CONQUER.</h1><p>PHANTOM X CLUB is a premium tournament hub for competitive Free Fire teams, players, schedules, standings and results.</p><div class="buttons"><a class="btn primary" href="#tournaments">VIEW TOURNAMENTS</a><a class="btn" href="#teams">EXPLORE TEAMS</a></div></div><div class="glass hero-art"><div class="orb"><strong>PX</strong></div></div></div></section>
+
+<section id="about"><div class="wrap"><div class="head"><div><div class="ey">01 / ABOUT</div><h2>Built for competition.</h2></div><p class="muted">A focused platform for organized esports tournaments and club updates.</p></div><div class="grid"><div class="card"><div class="ey">MISSION</div><h3>Competitive Culture</h3><p class="muted">Give teams a clean place to follow and manage competitive events.</p></div><div class="card"><div class="ey">FOCUS</div><h3>Tournament Operations</h3><p class="muted">Registration, fixtures, standings, results and announcements.</p></div><div class="card"><div class="ey">IDENTITY</div><h3>PHANTOM X</h3><p class="muted">Dark, sharp and modern esports visual identity.</p></div></div></div></section>
+
+<section id="teams"><div class="wrap"><div class="head"><div><div class="ey">02 / TEAMS</div><h2>Featured teams.</h2></div></div><div class="grid" id="teamCards"></div></div></section>
+<section id="players"><div class="wrap"><div class="head"><div><div class="ey">03 / PLAYERS</div><h2>Player roster.</h2></div></div><div class="grid" id="playerCards"></div></div></section>
+<section id="tournaments"><div class="wrap"><div class="head"><div><div class="ey">04 / TOURNAMENTS</div><h2>Upcoming events.</h2></div></div><div class="grid" id="tournamentCards"></div></div></section>
+<section id="schedule"><div class="wrap"><div class="head"><div><div class="ey">05 / SCHEDULE</div><h2>Match schedule.</h2></div></div><div class="table" id="scheduleTable"></div></div></section>
+<section id="standings"><div class="wrap"><div class="head"><div><div class="ey">06 / STANDINGS</div><h2>Leaderboard.</h2></div></div><div class="table" id="standingTable"></div></div></section>
+<section id="results"><div class="wrap"><div class="head"><div><div class="ey">07 / RESULTS</div><h2>Recent results.</h2></div></div><div class="grid" id="resultCards"></div></div></section>
+<section id="news"><div class="wrap"><div class="head"><div><div class="ey">08 / NEWS</div><h2>Latest updates.</h2></div></div><div class="grid" id="newsCards"></div></div></section>
+<section id="contact"><div class="wrap"><div class="head"><div><div class="ey">09 / CONTACT</div><h2>Connect with us.</h2></div></div><div class="contact"><div class="card"><h3>Official channels</h3><a href="#" data-edit="facebook">Facebook</a><a href="#" data-edit="youtube">YouTube</a></div><div class="card"><h3>Direct contact</h3><a href="#" data-edit="whatsapp">WhatsApp</a><a href="mailto:your@email.com" data-edit="email">your@email.com</a></div></div></div></section>
+</main>
+
+<section id="panel"><div class="wrap"><div class="login glass" id="loginBox"><div class="ey">PRIVATE AREA</div><h2>Login</h2><p class="muted">Demo UI only. Secure authentication must be connected to a backend before production.</p><form class="form" id="loginForm"><input id="email" type="email" placeholder="Email" required><input id="password" type="password" placeholder="Password" required><select id="role"><option value="admin">Admin</option><option value="team">Team Member</option></select><button class="btn primary">Login</button></form></div>
+<div class="hidden" id="dashboard"><div class="panelbar"><div><div class="ey">PRIVATE DASHBOARD</div><h2 id="dashTitle">Dashboard</h2></div><button class="btn" id="logout">Logout</button></div><div class="admin-grid"><aside class="side glass"><button class="active" data-view="overview">Overview</button><button data-view="teams">Teams</button><button data-view="players">Players</button><button data-view="tournaments">Tournaments</button><button data-view="matches">Matches</button><button data-view="standings">Standings</button><button data-view="results">Results</button><button data-view="news">News</button><button data-view="settings">Site Settings</button></aside><div class="dash glass" id="dashContent"></div></div></div></div></section>
+
+<footer><div class="wrap">© <span id="year"></span> PHANTOM X CLUB · FREE FIRE ESPORTS</div></footer>
+
+<script>
+/*
+IMPORTANT:
+This file is a front-end prototype. The dashboard below is NOT a secure
+authentication/database system. For production, connect it to a real
+backend such as Supabase/Firebase and enforce server-side authorization/RLS.
+Do not put real passwords or sensitive credentials in this file.
+*/
+const data={
+teams:[
+{name:"PHANTOM ALPHA",id:"PXC-001",players:5,status:"Active",points:86},
+{name:"NOVA SQUAD",id:"PXC-002",players:5,status:"Active",points:79},
+{name:"VOID ESPORTS",id:"PXC-003",players:5,status:"Active",points:74}],
+players:[
+{name:"PLAYER ONE",ign:"PHANTOM•ONE",uid:"001",role:"IGL",team:"PHANTOM ALPHA"},
+{name:"PLAYER TWO",ign:"PHANTOM•TWO",uid:"002",role:"RUSH",team:"PHANTOM ALPHA"},
+{name:"PLAYER THREE",ign:"VOID•THREE",uid:"003",role:"SUPPORT",team:"VOID ESPORTS"}],
+tournaments:[
+{name:"PHANTOM X CUP — SEASON 01",status:"Registration Open",date:"28 FEB 2026",format:"Battle Royale",entry:"FREE",prize:"৳35K",teams:18},
+{name:"PHANTOM X SHOWDOWN",status:"Completed",date:"2026",format:"Squad",entry:"—",prize:"—",teams:18}],
+matches:[
+["MATCH 01","28 FEB","10:00 PM","Alpha · Nova · Void","Scheduled"],
+["MATCH 02","28 FEB","10:30 PM","Alpha · Nova · Void","Scheduled"],
+["MATCH 03","28 FEB","11:00 PM","Alpha · Nova · Void","Scheduled"]],
+standings:[
+["01","PHANTOM ALPHA","12","4","48","86"],
+["02","NOVA SQUAD","12","3","43","79"],
+["03","VOID ESPORTS","12","2","39","74"]],
+results:[
+["Season 01 · Match 03","PHANTOM ALPHA — 31 pts","NOVA SQUAD — 27 pts","VOID ESPORTS — 22 pts"],
+["Season 01 · Match 02","NOVA SQUAD — 29 pts","PHANTOM ALPHA — 25 pts","VOID ESPORTS — 21 pts"]],
+news:[
+["ANNOUNCEMENT","PHANTOM X CUP registration is now open."],
+["TEAM UPDATE","Team roster updates and confirmations."],
+["MATCH UPDATE","Match schedule has been updated."]]
+};
+
+const $=id=>document.getElementById(id);
+function render(){
+$("teamCards").innerHTML=data.teams.map(t=>`<div class="card"><span class="badge">${t.status}</span><h3>${t.name}</h3><p class="muted">Team ID: ${t.id}</p><div class="stats"><div class="stat"><b>${t.players}</b><small>Players</small></div><div class="stat"><b>${t.points}</b><small>Points</small></div><div class="stat"><b>ACTIVE</b><small>Status</small></div></div></div>`).join("");
+$("playerCards").innerHTML=data.players.map(p=>`<div class="card"><div class="ey">PLAYER</div><h3>${p.name}</h3><p class="muted">IGN: ${p.ign}</p><div class="stats"><div class="stat"><b>${p.role}</b><small>Role</small></div><div class="stat"><b>${p.uid}</b><small>UID</small></div><div class="stat"><b>${p.team}</b><small>Team</small></div></div></div>`).join("");
+$("tournamentCards").innerHTML=data.tournaments.map(t=>`<div class="card"><span class="badge">${t.status}</span><h3>${t.name}</h3><p class="muted">${t.date} · ${t.format}</p><div class="stats"><div class="stat"><b>${t.entry}</b><small>Entry</small></div><div class="stat"><b>${t.prize}</b><small>Prize</small></div><div class="stat"><b>${t.teams}</b><small>Teams</small></div></div></div>`).join("");
+$("scheduleTable").innerHTML=table(["Match","Date","Time","Teams","Status"],data.matches);
+$("standingTable").innerHTML=table(["Rank","Team","Matches","Booyah","Eliminations","Points"],data.standings);
+$("resultCards").innerHTML=data.results.map(r=>`<div class="card"><span class="badge">FINAL</span><h3>${r[0]}</h3>${r.slice(1).map(x=>`<p class="muted">${x}</p>`).join("")}</div>`).join("");
+$("newsCards").innerHTML=data.news.map(n=>`<div class="card"><div class="ey">${n[0]}</div><h3>${n[1]}</h3><p class="muted">Replace this with your official announcement.</p></div>`).join("");
+}
+function table(head,rows){return `<table><thead><tr>${head.map(x=>`<th>${x}</th>`).join("")}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map((x,i)=>`<td>${i===0?`<b>${x}</b>`:x}</td>`).join("")}</tr>`).join("")}</tbody></table>`}
+render();$("year").textContent=new Date().getFullYear();
+
+$("menu").onclick=()=>{$("nav").style.display=$("nav").style.display==="flex"?"none":"flex"};
+document.querySelectorAll("#nav a").forEach(a=>a.onclick=()=>{$("nav").style.display="none"});
+
+function showPanel(){ $("public").classList.add("hidden"); $("panel").style.display="block"; window.scrollTo(0,0)}
+function showPublic(){ $("public").classList.remove("hidden"); $("panel").style.display="none"; }
+function dashboard(view="overview",role="admin"){
+$("loginBox").classList.add("hidden");$("dashboard").classList.remove("hidden");
+$("dashTitle").textContent=role==="admin"?"Admin Dashboard":"Team Dashboard";
+const content={
+overview:`<div class="ey">CONTROL CENTER</div><h3>${role==="admin"?"Manage PHANTOM X CLUB":"Manage Your Team"}</h3><p class="muted">${role==="admin"?"Use the sections to manage tournaments, teams, players, matches, standings, results, news and site settings.":"In production, this area will be restricted to your own team using backend authorization."}</p><div class="stats"><div class="stat"><b>${data.teams.length}</b><small>Teams</small></div><div class="stat"><b>${data.players.length}</b><small>Players</small></div><div class="stat"><b>${data.tournaments.length}</b><small>Tournaments</small></div></div>`,
+teams:`<div class="ey">TEAMS</div><h3>Team Management</h3><p class="muted">Demo controls. Connect to a database for persistent changes.</p><button class="btn primary" onclick="alert('Production version: create team form will save to the database here.')">+ Add Team</button>`,
+players:`<div class="ey">PLAYERS</div><h3>Player Management</h3><p class="muted">Add player name, IGN, UID, role and photo in the production database.</p><button class="btn primary" onclick="alert('Production version: player form will save to the database here.')">+ Add Player</button>`,
+tournaments:`<div class="ey">TOURNAMENTS</div><h3>Tournament Management</h3><p class="muted">Create events, registration windows, formats and tournament status.</p><button class="btn primary" onclick="alert('Production version: tournament form will save to the database here.')">+ Create Tournament</button>`,
+matches:`<div class="ey">MATCHES</div><h3>Match Schedule</h3><p class="muted">Create and update fixtures.</p>`,
+standings:`<div class="ey">STANDINGS</div><h3>Leaderboard</h3>${$("standingTable").innerHTML}`,
+results:`<div class="ey">RESULTS</div><h3>Results</h3>${$("resultCards").innerHTML}`,
+news:`<div class="ey">NEWS</div><h3>News Management</h3><button class="btn primary" onclick="alert('Production version: news editor will save to the database here.')">+ Publish News</button>`,
+settings:`<div class="ey">SITE SETTINGS</div><h3>Branding & Links</h3><div class="form"><input placeholder="Website name" value="PHANTOM X CLUB"><input placeholder="Facebook URL"><input placeholder="YouTube URL"><input placeholder="WhatsApp URL"><button class="btn primary" onclick="alert('Production version: settings will be saved to the database here.')">Save Settings</button></div>`
+};
+$("dashContent").innerHTML=content[view]||content.overview;
+document.querySelectorAll(".side button").forEach(b=>b.classList.toggle("active",b.dataset.view===view));
+}
+document.querySelectorAll(".side button").forEach(b=>b.onclick=()=>dashboard(b.dataset.view,window.currentRole||"admin"));
+$("loginForm").onsubmit=e=>{e.preventDefault();window.currentRole=$("role").value;dashboard("overview",window.currentRole)};
+$("logout").onclick=()=>{showPublic();$("loginBox").classList.remove("hidden");$("dashboard").classList.add("hidden")};
+
+// Access the private prototype by adding #admin or #team to the URL.
+// This does not provide real security; it only opens the prototype UI.
+if(location.hash==="#admin"||location.hash==="#team")showPanel();
+</script>
+</body>
+</html>
